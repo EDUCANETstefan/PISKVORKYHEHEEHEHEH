@@ -200,20 +200,18 @@ public class PiskvorkyKod {
         String x = pole[radek][sloupec];
 
         int a = 1;
-        int b = 1;
 
         for (int i = 1; i < 5; i++) {
 
             if (sloupec + i >= pole.length) {
                 break;
             }
-            if (radek + i >= pole.length) {
+            if (radek + i < 0) {
                 break;
             }
 
             if (pole[radek][sloupec].equals(pole[radek + i][sloupec + i])) {
                 a++;
-                b++;
             }
         }
 
@@ -222,21 +220,14 @@ public class PiskvorkyKod {
             if (sloupec - j < 0) {
                 break;
             }
-            if (radek - j < 0) {
+            if (radek + j >= pole.length) {
                 break;
             }
 
             if (pole[radek][sloupec].equals(pole[radek + j][sloupec + j])) {
                 a++;
-                b++;
             }
         }
-
-        if (a <= 5 && b <= 5) {
-            System.out.println("VYHRAL HRAC: " + x);
-        }
-
-        System.out.println(pole[radek][sloupec]);
 
         return false;
     }
